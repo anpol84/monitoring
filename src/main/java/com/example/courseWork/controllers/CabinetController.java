@@ -45,8 +45,7 @@ public class CabinetController {
     }
 
     @PutMapping("/{id}")
-    public String update(@ModelAttribute @Valid Cabinet cabinet, BindingResult bindingResult, @PathVariable Integer id,
-                         Model model){
+    public String update(@ModelAttribute @Valid Cabinet cabinet, BindingResult bindingResult, @PathVariable Integer id){
         cabinetValidator.validate(cabinet, bindingResult);
         if (bindingResult.hasErrors()){
             return "cabinets/update";
@@ -61,7 +60,6 @@ public class CabinetController {
 
         return "cabinets/new";
     }
-
     @PostMapping
     public String create(@ModelAttribute("cabinet") @Valid Cabinet cabinet, BindingResult bindingResult, Model model){
         cabinetValidator.validate(cabinet, bindingResult);
@@ -71,10 +69,10 @@ public class CabinetController {
         cabinetService.save(cabinet);
         return "redirect:/cabinets";
     }
-
     @DeleteMapping("/{id}")
     public String delete(@PathVariable Integer id){
         cabinetService.delete(id);
         return "redirect:/cabinets";
     }
+
 }

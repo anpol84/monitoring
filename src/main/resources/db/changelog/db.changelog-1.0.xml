@@ -112,7 +112,6 @@
             </column>
         </createTable>
 
-
     </changeSet>
     <changeSet id="1.0.7" author="anpol84">
         <createTable tableName="course_institute">

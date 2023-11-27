@@ -15,18 +15,14 @@ import org.springframework.security.web.SecurityFilterChain;
 
 @EnableWebSecurity
 public class SecurityConfig {
-
     private final UserService userService;
     @Autowired
     public SecurityConfig(UserService userService) {
         this.userService = userService;
     }
-
     public void configure (AuthenticationManagerBuilder auth) throws Exception {
         auth.userDetailsService(userService).passwordEncoder(getPasswordEncoder());
     }
-
-
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http.authorizeHttpRequests((authorize) -> {
@@ -38,7 +34,6 @@ public class SecurityConfig {
                                 "/untreatedStudents/**", "/auth/registerAdmin",
                                 "/profiles",
                                 "/auth/profileInfo/**").hasRole("ADMIN")
-
                                 .requestMatchers("/auth/login", "/error",
                                         "/auth/register", "/js/**", "/css/**")
                                 .permitAll()
@@ -56,12 +51,8 @@ public class SecurityConfig {
         });
         return http.build();
     }
-
     @Bean
     public PasswordEncoder getPasswordEncoder(){
         return new BCryptPasswordEncoder();
     }
-
-
-
 }

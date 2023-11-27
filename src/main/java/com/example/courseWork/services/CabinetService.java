@@ -42,3 +42,5 @@ public class CabinetService {
         cabinetRepo.deleteById(id);
    }
 }
+
+

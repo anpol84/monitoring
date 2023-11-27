@@ -67,7 +67,6 @@ public class EventService {
             pastRetake.setDate(event.getDate());
             pastRetake.setSubject(event.getCourse().getName());
             pastRetake.setUser(user);
-            System.out.println(isRetake.get(i).equals("pass"));
             if (isRetake.get(i).equals("pass")){
                 List<User> tempStudent = event.getStudents();
                 tempStudent.remove(user);
@@ -93,7 +92,6 @@ public class EventService {
             if (flag){
                 pastRetakeService.save(pastRetake);
             }
-
         }
         eventRepo.deleteById(event.getId());
     }

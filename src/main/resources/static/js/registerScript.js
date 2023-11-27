@@ -1,11 +1,11 @@
-var department = document.getElementById("departmentDiv");
-var specialization = document.getElementById("specializationDiv");
-var roleInputs = document.querySelectorAll('input[name="role"]');
-for (var i = 0; i < roleInputs.length; i++) {
+const department = document.getElementById("departmentDiv");
+const specialization = document.getElementById("specializationDiv");
+const roleInputs = document.querySelectorAll('input[name="role"]');
+for (let i = 0; i < roleInputs.length; i++) {
     roleInputs[i].addEventListener('change', function() {
-        var roleInput = document.querySelector('input[name="role"]:checked');
+        const roleInput = document.querySelector('input[name="role"]:checked');
         if (roleInput) {
-            var role = roleInput.value;
+            const role = roleInput.value;
             if (role === "ROLE_STUDENT") {
                 department.style.display = "none";
                 specialization.style.display = "block";
@@ -19,3 +19,4 @@ for (var i = 0; i < roleInputs.length; i++) {
 // Скрываем список изначально
 department.style.display = "none";
 specialization.style.display = "none";
+

@@ -10,3 +10,5 @@ import java.util.Optional;
 public interface CabinetRepo extends JpaRepository<Cabinet, Integer> {
     Optional<Cabinet> findByNumber(Integer number);
 }
+
+

@@ -19,7 +19,6 @@ public class CabinetValidator implements Validator {
     public boolean supports(Class<?> clazz) {
         return Cabinet.class.equals(clazz);
     }
-
     @Override
     public void validate(Object target, Errors errors) {
         Cabinet cabinet = (Cabinet) target;
@@ -37,7 +36,7 @@ public class CabinetValidator implements Validator {
 
             }
         }
-
-
     }
 }
+
+
